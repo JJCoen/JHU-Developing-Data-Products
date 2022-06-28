@@ -1,0 +1,47 @@
+---
+title: "Air-Quality"
+author: "Jim Coen"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    logo: ../images/corporate-finance-inst.jpeg
+  beamer_presentation: default
+  slidy_presentation: default
+always_allow_html: yes
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Air Quality
+
+```{r inspect, comment=""}
+data("airquality")
+head(airquality)
+```
+
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE, comment=""}
+summary(airquality)
+```
+
+## Slide with Plot
+
+```{r ozone, fig.cap="Some like it hot", fig.align=center}
+with(airquality, 
+     plot(Ozone, Solar.R, xlab="Ozone", ylab="Solar-Rad"))
+
+```
+
