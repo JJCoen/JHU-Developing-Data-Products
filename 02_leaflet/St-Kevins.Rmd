@@ -24,7 +24,8 @@ Map_DF <- data.frame("Point_ID" = 1,
                      "Latitude" = c(53.332786),
                      "Longitude" = c(-6.267576),
                      "PointUse" = c("St Kevins"))
-
+# Leaflet for R
+# https://rstudio.github.io/leaflet/popups.html
 content <- paste(sep = "<br/>",
   "<b><a href='http://www.stkevinsdublin.ie'>St Kevins</a></b>",
   "Home to Saints and Scholars",
