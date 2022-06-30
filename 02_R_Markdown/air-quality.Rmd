@@ -1,5 +1,12 @@
 ---
 title: "Air-Quality"
+# knit: (function(input_file, encoding){
+#   out_dir: <- 'docs';
+#   rmarkdown::render(input_file, 
+#     encoding=encoding,
+#     output_file=file.path(dirname(input_file), out_dir, 'index.html'))
+#   }
+# )
 author: "Jim Coen"
 date: "`r Sys.Date()`"
 output:
@@ -39,7 +46,7 @@ summary(airquality)
 
 ## Slide with Plot
 
-```{r ozone, fig.cap="Some like it hot", fig.align=center}
+```{r ozone, fig.cap="Some like it hot", fig.align='center'}
 with(airquality, 
      plot(Ozone, Solar.R, xlab="Ozone", ylab="Solar-Rad"))
 

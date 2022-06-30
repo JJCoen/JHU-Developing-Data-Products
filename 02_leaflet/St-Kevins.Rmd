@@ -1,0 +1,59 @@
+---
+title: "St-Kevins"
+author: "Jim Coen"
+date: "`r format(Sys.Date(), '%A, %B %d, %Y') `"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+```{r, warning=FALSE, message=FALSE}
+# Libraries
+library(dplyr) 
+library(leaflet)
+
+# Leaflet in R: How to color sites from parameters that may contain a list
+# https://community.rstudio.com/t/leaflet-in-r-how-to-color-sites-from-parameters-that-may-contain-a-list/69103
+
+# InputData & Functions
+Map_DF <- data.frame("Point_ID" = 1,
+                     "Latitude" = c(53.332786),
+                     "Longitude" = c(-6.267576),
+                     "PointUse" = c("St Kevins"))
+
+content <- paste(sep = "<br/>",
+  "<b><a href='http://www.stkevinsdublin.ie'>St Kevins</a></b>",
+  "Home to Saints and Scholars",
+  "and refuge of sinners"
+)
+
+PointUsePalette <- colorFactor(palette = c("red"),
+                               domain = c("St Kevins"))
+# Leaflet Map
+leaflet() %>% 
+  addTiles() %>%
+  setView(
+    lng = -6.267576, 
+    lat = 53.332786, 
+    zoom = 15
+    ) %>%
+  # addCircleMarkers(
+  #   data = Map_DF,
+  #   lat = ~Latitude,
+  #   lng = ~Longitude,
+  #   radius = 5,
+  #   color = ~PointUsePalette(PointUse),
+  #   popup = ~PointUse
+  # ) %>% 
+  addPopups(-6.267576, 53.332786, content,
+    options = popupOptions(keepInView = TRUE,
+                           closeButton = FALSE,
+                           zoomAnimation = NULL,
+                           closeOnClick = FALSE)
+  )
+```
+
