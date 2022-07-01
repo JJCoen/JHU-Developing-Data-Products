@@ -1,0 +1,20 @@
+---
+title: "Developing Data Products"
+author: "Jim Coen"
+output:
+  html_document:
+    toc: false
+editor_options: 
+  markdown: 
+    wrap: 72    
+---
+
+Assignments for Developing Data Products course
+
+**Please ensure that you are connected to internet**
+
+## Assignment Week 2 - leaflet
+
+The purpose of this to practice creativity using the `leaflet` package
+
+* Click on this link [St-Kevins](St-Kevins.html) to see interactive map.

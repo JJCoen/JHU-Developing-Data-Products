@@ -15,7 +15,6 @@ knitr::opts_chunk$set(echo = FALSE)
 # Libraries
 library(dplyr) 
 library(leaflet)
-
 # Leaflet in R: How to color sites from parameters that may contain a list
 # https://community.rstudio.com/t/leaflet-in-r-how-to-color-sites-from-parameters-that-may-contain-a-list/69103
 
@@ -56,5 +55,5 @@ leaflet() %>%
                            zoomAnimation = NULL,
                            closeOnClick = FALSE)
   )
-```
+6```
 
