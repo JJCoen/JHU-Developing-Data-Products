@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE x_tags PUBLIC "-//ORNLDAAC//DTD CDIAC:metadata//EN"
+"http://www-eosdis.ornl.gov/data/bluangel_harvest/CDIAC/metadata.dtd">
+
+<?ornlmercury Creation_datetime="20050719 095029"
+ Creation_IP="160.91.18.40" DTD_version="metadata10.dtd"
+ OME_version="Version 4.7.5, Revision Date: 04 Apr 2006"
+ simpleSaveXMLlength="5374"
+ File_revision="20120905 123319"?>
+<x_tags>
+ <Product_number><![CDATA[doi 10.3334/CDIAC/cli.011]]></Product_number>
+<Product_title><![CDATA[Historical Atmospheric CO2 records derived from the Law Dome DE08, DE08-2, and DSS ice cores]]></Product_title>
+ <Author>
+  <Name><![CDATA[Etheridge, D. M.]]></Name>
+  <Company><![CDATA[CSIRO]]></Company>
+  <Organization><![CDATA[Division of Atmospheric Research]]></Organization>
+ </Author>
+ <Author>
+  <Name><![CDATA[Steele, L. P.]]></Name>
+  <Company><![CDATA[CSIRO]]></Company>
+  <Organization><![CDATA[Division of Atmospheric Research]]></Organization>
+ </Author>
+ <Author>
+  <Name><![CDATA[Langenfelds, R. L.]]></Name>
+  <Company><![CDATA[CSIRO]]></Company>
+  <Organization><![CDATA[Division of Atmospheric Research]]></Organization>
+ </Author>
+ <Author>
+  <Name><![CDATA[Francey, R. J.]]></Name>
+  <Company><![CDATA[CSIRO]]></Company>
+  <Organization><![CDATA[Division of Atmospheric Research]]></Organization>
+ </Author>
+ <Author>
+  <Name><![CDATA[Barnola, J. M.]]></Name>
+  <Company><![CDATA[Laboratoire de Glaciologie et Geophysique de l'Environnement]]></Company>
+  <Organization><![CDATA[]]></Organization>
+ </Author>
+ <Author>
+  <Name><![CDATA[Morgan, V. I.]]></Name>
+  <Company><![CDATA[Antarctic CRC and Australian Antarctic Division]]></Company>
+  <Organization><![CDATA[]]></Organization>
+ </Author>
+ <Thematic_area><![CDATA[Atmospheric Carbon Dioxide]]></Thematic_area>
+ <Thematic_area><![CDATA[Atmospheric Trace Gases]]></Thematic_area>
+ <Begin_date><![CDATA[10060101]]></Begin_date>
+ <End_date><![CDATA[19781231]]></End_date>
+ <North><![CDATA[-66.733]]></North>
+ <South><![CDATA[-66.733]]></South>
+ <East><![CDATA[112.833]]></East>
+ <West><![CDATA[112.833]]></West>
+ <Site_info>
+  <Site_name><![CDATA[Law Dome, Antarctica]]></Site_name>
+  <Site_URL><![CDATA[http://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html]]></Site_URL>
+  <Site_data_file><![CDATA[http://cdiac.ess-dive.lbl.gov/ftp/trends/co2/lawdome.combined.dat]]></Site_data_file>
+  <Site_data_file><![CDATA[http://cdiac.ess-dive.lbl.gov/ftp/trends/co2/lawdome.smoothed.yr20]]></Site_data_file>
+  <Site_data_file><![CDATA[http://cdiac.ess-dive.lbl.gov/ftp/trends/co2/lawdome.smoothed.yr75]]></Site_data_file>
+  <Site_data_file><![CDATA[http://cdiac.ess-dive.lbl.gov/trends/co2/graphics/lawdome.gif]]></Site_data_file>
+  <Site_data_file><![CDATA[http://cdiac.ess-dive.lbl.gov/trends/co2/graphics/lawdome.smooth20.gif]]></Site_data_file>
+  <Site_data_file><![CDATA[http://cdiac.ess-dive.lbl.gov/trends/co2/graphics/lawdome.smooth75.gif]]></Site_data_file>
+ </Site_info>
+ <Data_site></Data_site>
+ <Variable><![CDATA[20 year smoothed CO2]]></Variable>
+ <Variable><![CDATA[75 year smoothed CO2]]></Variable>
+ <Variable><![CDATA[analysis date]]></Variable>
+ <Variable><![CDATA[CO2 mixing ratio]]></Variable>
+ <Variable><![CDATA[ice age year A.D.]]></Variable>
+ <Variable><![CDATA[ice sample dode]]></Variable>
+ <Variable><![CDATA[mean air age year A.D.]]></Variable>
+ <Variable><![CDATA[mean ice depth]]></Variable>
+ <Variable><![CDATA[year A.D.]]></Variable>
+ <Descriptive_file><![CDATA[http://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html]]></Descriptive_file>
+ <Data_file></Data_file>
+ <Data_IO_file></Data_IO_file>
+ <Initial_date_of_data_publication><![CDATA[19980626]]></Initial_date_of_data_publication>
+ <Most_recent_date_of_data_publication><![CDATA[19980626]]></Most_recent_date_of_data_publication>
+ <Keyword><![CDATA[CO2 measurements]]></Keyword>
+ <Keyword><![CDATA[CO2 mixing ratio]]></Keyword>
+ <Keyword><![CDATA[Atmospheric CO2 reconstructions]]></Keyword>
+ <Keyword><![CDATA[TRENDS-CO2]]></Keyword>
+ <Data_file_location><![CDATA[http://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html]]></Data_file_location>
+ <Total_size_of_all_files><![CDATA[]]></Total_size_of_all_files>
+ <Distribution><![CDATA[external]]></Distribution>
+ <CDIAC_contact><![CDATA[Thomas A. Boden; email: bodenta@ornl.gov]]></CDIAC_contact>
+<Notes><![CDATA[The CO2 records presented comprising this database are derived from three ice cores obtained at Law Dome, East Antarctica from 1987 to 1993. The Law Dome site satisfies many of the desirable characteristics of an ideal ice core site for atmospheric CO2 reconstructions including negligible melting of the ice sheet surface, low concentrations of impurities, regular stratigraphic layering undisturbed at the surface by wind or at depth by ice flow, and high snow accumulation rate. Further details on the site, drilling, and cores are provided in Etheridge et al. (1996), Etheridge and Wookey (1989), and Morgan et al (1997).
+<br><br>
+  The atmospheric CO2 reconstructions presented here offer records of atmospheric CO2 mixing ratios from 1006 A.D. to 1978 A.D. The air enclosed in the three ice cores from Law Dome, Antarctica has unparalled age resolution and extends into recent decades, because of the high rate of snow accumulation at the Law Dome drill sites (Etheridge et al. 1996). Etheridge et al. (1996) reported the uncertainty of the ice core CO2 mixing ratios is 1.2 ppm. Preindustrial CO2 mixing ratios were in the range 275-284 ppm, with the lower levels during 1550-1800 A.D., probably as a result of colder global climate (Etheridge et al. 1996). The Law Dome ice core CO2 records show major growth in atmospheric CO2 levels over the industrial period, except during 1935-1945 A.D. when levels stabilized or decreased slightly.]]></Notes>
+</x_tags>
