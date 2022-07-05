@@ -1,0 +1,116 @@
+---
+title: "Plotly Assignment"
+author: "Jim Coen"
+output:
+  ioslides_presentation:
+    logo: ./images/corporate-finance-inst.jpeg
+  beamer_presentation: default
+  slidy_presentation: default
+always_allow_html: yes
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(data.table)
+library(ggplot2)
+library(magrittr)
+library(plotly)
+```
+
+
+<style>
+div.footnotes {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 80%;
+  font-size: 0.6em;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('slide:not(.backdrop):not(.title-slide)').append('<div class=\"footnotes\">');
+
+  $('footnote').each(function(index) {
+    var text  = $(this).html();
+    var fnNum = (index+1).toString();
+    $(this).html(fnNum.sup());
+
+    var footnote   = fnNum + '. ' + text + '<br/>';
+    var oldContent = $(this).parents('slide').children('div.footnotes').html();
+    var newContent = oldContent + footnote;
+    $(this).parents('slide').children('div.footnotes').html(newContent);
+  });
+});
+</script>
+
+
+```{r}
+library(readr)
+
+temp_data <- read_csv("./data/LoehleEandE2007.csv", 
+                      col_names = c("Date", "dev_deg_C"), 
+                      skip = 2)
+setnames(temp_data, "Date", "Year")
+```
+
+
+```{r}
+library(readxl)
+
+excel_sheets("./data/law2006.xls")
+rare_gas_data <- read_excel("./data/law2006.xls", 
+                       sheet = "SplineFit20yr",
+                       skip = 3 )
+# select CO2 data
+co2_data <- rare_gas_data[, c(5, 6)]
+setnames(co2_data,  "Year AD...5", "Year")
+setnames(co2_data,  "CO2 Spline (ppm)", "CO2")
+rm("rare_gas_data")
+```
+
+## Climate Realism
+
+```{r}
+fig1 <- plot_ly(temp_data, 
+                x = ~Year, y = ~dev_deg_C, 
+                type = 'scatter', 
+                mode = 'lines',
+                line = list(color = 'rgb(205, 12, 24)', width = 2),
+                name = "Temp") 
+fig2 <- plot_ly(co2_data, 
+                x = ~Year, y = ~CO2, 
+                type = 'scatter', mode = 'lines',
+                line = list(color = 'rgb(22, 96, 167)', width = 2),
+                name = "CO2") 
+
+fig <- subplot(fig1, fig2, nrows = 2, shareX = TRUE) %>% 
+  layout(title = list(text = "Temperature and CO2"),
+         plot_bgcolor='#e5ecf6', 
+         xaxis = list( 
+           zerolinecolor = '#ffff', 
+           zerolinewidth = 2, 
+           gridcolor = 'ffff'), 
+         yaxis = list( 
+           zerolinecolor = '#ffff', 
+           zerolinewidth = 2, 
+           gridcolor = 'ffff')) 
+ggplotly(fig, dynamicTicks = TRUE) %>%
+  rangeslider() 
+
+```
+Temperature is deviation from the average and CO2 is in ppm.<footnote>Move the range slider in the bottom plot to focus on specific years</footnote>
+
+## Source Data:
+
+[Historical CO2 records from Law Dome ice cores](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ncei.noaa.gov%2Fpub%2Fdata%2Fpaleo%2Ficecore%2Fantarctica%2Flaw%2Flaw2006.xls&wdOrigin=BROWSELINK)
+
+Loehle, C. (2007) ‘A 2000-Year Global Temperature Reconstruction Based on Non-Tree ring Proxies’, Energy & Environment, 18(7), pp. 1049–1058. doi: 10.1260/095830507782616797.
+
+[Temperature](https://www.ncasi.org/?s=2000+year+global+temperature+non-tree+ring+loehle)
