@@ -1,9 +1,10 @@
 ---
 title: "Plotly Assignment"
 author: "Jim Coen"
+data: "`r format(Sys.Date(), '%A, %B %d, %Y') `"
 output:
   ioslides_presentation:
-    logo: ./images/corporate-finance-inst.jpeg
+    logo: ../images/corporate-finance-inst.jpeg
   beamer_presentation: default
   slidy_presentation: default
 always_allow_html: yes
@@ -54,7 +55,7 @@ $(document).ready(function() {
 ```{r}
 library(readr)
 
-temp_data <- read_csv("./data/LoehleEandE2007.csv", 
+temp_data <- read_csv("../data/LoehleEandE2007.csv", 
                       col_names = c("Date", "dev_deg_C"), 
                       skip = 2)
 setnames(temp_data, "Date", "Year")
@@ -64,8 +65,8 @@ setnames(temp_data, "Date", "Year")
 ```{r}
 library(readxl)
 
-excel_sheets("./data/law2006.xls")
-rare_gas_data <- read_excel("./data/law2006.xls", 
+##excel_sheets("../data/law2006.xls")
+rare_gas_data <- read_excel("../data/law2006.xls", 
                        sheet = "SplineFit20yr",
                        skip = 3 )
 # select CO2 data
