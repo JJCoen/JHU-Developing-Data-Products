@@ -17,10 +17,15 @@ Assignments for Developing Data Products course
 
 The purpose of this to practice creativity using the `leaflet` package
 
-* Click on this link [St-Kevins](St-Kevins.html) to see interactive map.
+-   Click on this link [St-Kevins](St-Kevins.html) to see interactive
+    map.
 
 ## Assignment Week 3 - plotly
 
-The purpose of this assignment is to create a web page presentation using R Markdown that features a plot created with Plotly.
+The purpose of this assignment is to create a web page presentation
+using R Markdown that features a plot created with Plotly.
 
-* Click on this link [JJC-Plotly](JJC-plotly.html) to see graphs of Temperature Vs CO2 over the past 2000 years.  The range slider allows you to focus on specific time periods.
+-   Click on this link [JJC-Plotly](JJC-plotly.html) to see graphs of
+    Temperature Vs CO2 over the past 2000 years. The range slider allows
+    you to focus on specific time periods. It is recommended to view
+    this in full screen mode.
