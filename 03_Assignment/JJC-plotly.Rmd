@@ -52,10 +52,9 @@ $(document).ready(function() {
 </script>
 
 
-```{r}
+```{r, warning=FALSE}
 library(readr)
-
-temp_data <- read_csv("../data/LoehleEandE2007.csv", 
+temp_data <- read_csv("./data/LoehleEandE2007.csv", 
                       col_names = c("Date", "dev_deg_C"), 
                       skip = 2)
 setnames(temp_data, "Date", "Year")
@@ -66,7 +65,7 @@ setnames(temp_data, "Date", "Year")
 library(readxl)
 
 ##excel_sheets("../data/law2006.xls")
-rare_gas_data <- read_excel("../data/law2006.xls", 
+rare_gas_data <- read_excel("./data/law2006.xls", 
                        sheet = "SplineFit20yr",
                        skip = 3 )
 # select CO2 data
