@@ -9,6 +9,7 @@ library(shiny)
 
 # load Loans Data
 loan_data <- read.csv("./Data/loan_data_preproc.csv", stringsAsFactors = TRUE)
+# convert to a data table
 setDT(loan_data)
 # remove index column inserted by Excel
 loan_data[, X := NULL]
@@ -25,7 +26,7 @@ loan_data$loan_status <-ifelse(loan_data$loan_status ==1,
 #Define UI
 fluidPage(
   
-  
+# retrieve inputs in side-bar panel  
   titlePanel("Loan Repayment based on Amount"),
   sidebarPanel(
     selectInput('ir', label = 'Interest Rate: ', 

@@ -6,7 +6,7 @@ loan_data[, X := NULL]
 # Select required variables
 loan_data <- loan_data[, .(loan_status, loan_amnt, ir_cat, emp_cat)]
 # Convert response to categorical in order to 
-# identify with names when plotting
+# identify names when plotting
 loan_data$loan_status <-ifelse(loan_data$loan_status ==1, 
                                "Default!",
                                "Loan Paid") %>% 
@@ -19,7 +19,7 @@ function(input, output) {
     # select interest rate and employment categories
     subset_data <- loan_data[ ir_cat == input$ir &
                                 emp_cat == input$emp]
-    
+    # create box plots
     ggplot(subset_data, aes(y = loan_amnt, x = loan_status,
                             color = loan_status) ) +
       geom_boxplot() +
