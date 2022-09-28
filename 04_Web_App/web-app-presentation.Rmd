@@ -1,0 +1,204 @@
+---
+title: "Loan Data Web App"
+subtitle: "Shiny Web App Assignment"
+author: 'Jim Coen'
+date: "`r format(Sys.Date(), '%A, %B %d, %Y') `"
+output:
+  slidy_presentation:
+    df_print: kable
+    footer: "JHU Developing Data Products"
+    incremental: TRUE
+    highlight: tango
+    css: styles.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(data.table)
+library(kableExtra)
+library(magrittr)
+```
+
+# Case Study: Online approval rating for a political party
+
+![](../images/corporate-finance-inst.jpeg){#right width=10%}
+
+
+
+## Reputation
+
+> “I sincerely believe that ... the principle of spending money to be paid by posterity, under the name of funding, is but swindling futurity on a large scale.” \
+> Thomas Jefferson
+
+## Source Data
+
+![](../images/corporate-finance-inst.jpeg){.left width="10%"}
+.right
+-   Loan Data
+-   Policy decisions
+-   High-ranking party members
+
+# Business Understanding {.columns-2}
+
+![](../images/corporate-finance-inst.jpeg){width="10%"}
+
+-   What effects loan repayment?
+
+    -   Interest Rate
+    -   Client's employment history
+-   Classification
+
+    - Default
+    - Repaid
+
+## Business Outcome
+
+-   Perception
+-   ex: Wuhan virus
+-   Reputation $Vs.$ Reality
+
+## Business Outcome
+
+-   Monitor response
+
+<center>![](../images/reputation-table.png){width="70%"}</center>
+
+## Evaluating Business Success {.columns-2}
+
+![](../images/US-election.jpeg){width="70%"}
+
+-   Reputation improves\
+-   Reputation monitor
+    -   Awareness
+    -   Accurate assessment of attitude
+
+## Evaluating Business Success
+
+-   Pilot System
+    -   Party Organisation
+    -   Well-connected Members
+
+## Strategic Plan for Machine Learning Adoption
+
+-   Educate Executives\
+-   Viability of a reputation monitor
+    -   Banking Sector\
+-   Reputation monitor for Fianna Fáil
+    -   How Supervised Learning works
+
+## Strategic Plan for Machine Learning Adoption
+
+-   Training Data
+-   Binary Classifier: 'positive' or 'negative'
+    -   Confusion Matrix and ROC Curve\
+-   Ranking based on probability estimates\
+-   Benchmark
+    -   **Political Social Media Posts** dataset
+
+## Machine Learning Readiness
+
+-   PySpark\
+-   Pandas dataframes and Python libraries\
+-   Further training
+
+## Risk Management
+
+<center>![](../images/hazard-risk.png){width="30%"}</center>
+
+-   Limited Domain Knowledge
+
+-   Index to Rank Reputation
+
+-   Activists
+
+    -   high proportion of posts
+
+## Risk Management
+
+-   Compiling Training Data
+
+    -   Banking: One researcher and two research assistants
+
+-   Non-response bias
+
+-   Emotive / Inflammatory posts
+
+-   Social Media Bias
+
+# Review of SenTube: A Corpus for Sentiment Analysis
+
+## Summary
+
+-   YouTube Posts
+    -   text categorisation\
+    -   sentiment analysis\
+    -   tablets and automobiles
+
+<center>![](../images/annotation-table.png){width="70%"}</center>
+
+## Summary
+
+-   Twitter
+-   User Profile
+-   Single-document Labels
+
+## Annotation Guidelines
+
+-   Accuracy and Consistency
+    -   fixed set of options
+-   Identity
+    -   no qualitative dimensions
+        -   attractiveness, convenience, durability
+
+## Annotation Guidelines
+
+-   Standardisation
+
+    -   level of agreement
+    -   Krippendorff's $\alpha$ coefficient
+    -   Recommend \> 0.8
+
+-   "a gold-standard sample"
+
+-   Single annotator
+
+    -   208 videos and 36 thousand comments!
+
+## Machine Learning Techniques
+
+-   Labeling
+    -   Supervised Learning\
+    -   Bias $Vs.$ Variance
+-   Baseline model
+    -   "bag-of-words"
+
+## Machine Learning Techniques
+
+-   Multi-Class Classification
+    -   Product type\
+    -   Comment and Sentiment
+-   Support Vector Machine
+    -   Linear Boundary
+
+## Advantages
+
+1.  Stability
+
+2.  Discussions and Conversations
+
+3.  Template
+
+4.  Annotation guidelines
+
+    -   automatic labeling
+
+## Disadvantages
+
+1.  Product Placement
+
+2.  Sentiment\
+    - finer granularity
+
+3.  No 'likes' / 'dislikes'
+
+-   <https://github.com/JJCoen/DBS-Data-Analysis-Machine-Learning>

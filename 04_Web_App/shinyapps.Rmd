@@ -1,0 +1,126 @@
+---
+title: 'Shinyapps.io setup'
+author: "shinyapps.io"
+webpage: "https://www.shinyapps.io/admin/#/dashboard"
+always_allow_html: yes
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Initialisation
+
+```{r}
+# install.packages('rsconnect')
+
+# Authorise account
+rsconnect::setAccountInfo(name='jjcoen',
+			  token='CA6AC03798C540B63F174F6A8BC299CB',
+			  secret='jCoYTzKCzZ76/7b34Jua6PO9ovkyI+9huWCNal9J')
+```
+
+Once the `rsconnect` package has been configured, you're ready to deploy
+your first application. If you haven't written any applications yet, you
+can also checkout the [Getting Started
+Guide](http://shiny.rstudio.com/articles/shinyapps.html) for
+instructions on how to deploy our demo application.
+
+```{r}
+library(rsconnect)
+    
+rsconnect::deployApp('path/to/your/app')
+```
+
+## **A Demo app**
+
+For this guide, we created an RStudio project named "demo" that contains
+a Shiny application to upload to shinyapps.io. Follow these steps to
+create your own Shiny app.
+
+### **1. Install application dependencies**
+
+The demo application we will deploy requires the `ggplot2` package and
+the `shiny` package. Ensure that any package required by your
+application is installed locally before you deploy your application.
+
+### 2. `server.R`
+
+```{r}
+library(shiny)
+library(ggplot2)
+
+function(input, output) {
+
+  dataset <- reactive({
+    diamonds[sample(nrow(diamonds), input$sampleSize),]
+  })
+
+  output$plot <- renderPlot({
+    p <- ggplot(dataset(), aes_string(x=input$x, y=input$y)) +
+      geom_point()
+    if (input$color != 'None')
+      p <- p + aes_string(color=input$color)
+    facets <- paste(input$facet_row, '~', input$facet_col)
+    if (facets != '. ~ .')
+      p <- p + facet_grid(facets)
+    if (input$jitter)
+      p <- p + geom_jitter()
+    if (input$smooth)
+      p <- p + geom_smooth()
+
+    print(p)
+
+  }, height=700)
+
+}
+```
+
+### 3. `ui.R`
+
+```{r}
+library(shiny)
+library(ggplot2)
+
+dataset <- diamonds
+
+fluidPage(
+  titlePanel("Diamonds Explorer"),
+  sidebarPanel(
+    sliderInput('sampleSize', 'Sample Size', min=1, 
+                max=nrow(dataset),
+                value=min(1000, nrow(dataset)), 
+                step=500, round=0),
+    selectInput('x', 'X', names(dataset)),
+    selectInput('y', 'Y', names(dataset), names(dataset)[[2]]),
+    selectInput('color', 'Color', c('None', names(dataset))),
+    checkboxInput('jitter', 'Jitter'),
+    checkboxInput('smooth', 'Smooth'),
+    selectInput('facet_row', 'Facet Row', c(None='.', names(dataset))),
+    selectInput('facet_col', 'Facet Column', c(None='.', names(dataset)))
+  ),
+
+  mainPanel(
+    plotOutput('plot')
+  )
+)
+```
+
+### 4. **Test your application**
+
+Test that your application works by running it locally. Set your
+[working directory](http://www.rstudio.com/ide/docs/using/workspaces) to
+your app directory, and then run:
+
+```{r}
+library(shiny)
+runApp()
+```
+
+## More Shiny Resources
+
+-   [The Official Shiny Tutorial](http://shiny.rstudio.com/tutorial/)
+-   [Gallery of Shiny Apps](http://shiny.rstudio.com/gallery/)
+-   [Show Me Shiny: Gallery of R Web Apps](http://www.showmeshiny.com/)
+-   [Integrating Shiny and Plotly](https://plot.ly/r/shiny-tutorial/)
+-   [Shiny on Stack
+    Overflow](http://stackoverflow.com/questions/tagged/shiny)
