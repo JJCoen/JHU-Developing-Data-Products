@@ -9,7 +9,7 @@ editor_options:
     wrap: 72    
 ---
 
-Assignments for Developing Data Products course
+# Assignments for Developing Data Products course
 
 **Please ensure that you are connected to internet**
 
@@ -29,3 +29,12 @@ using R Markdown that features a plot created with Plotly.
     Temperature Vs CO2 over the past 2000 years. The range slider allows
     you to focus on specific time periods. It is recommended to view
     this in full screen mode.
+
+## Course Project - shiny web app
+
+-   The web app itself is available from the `shinyapps.io` website at
+    the [Loan-App](https://jjcoen.shinyapps.io/loan-app/) link.\
+-   Documentation for the web app is also available from the
+    `shinyapps.io` website at the [Loans App Description](https://jjcoen.shinyapps.io/loan-app-documentation/) link.
+
+    

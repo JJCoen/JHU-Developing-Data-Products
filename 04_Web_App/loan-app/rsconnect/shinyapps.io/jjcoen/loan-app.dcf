@@ -4,8 +4,8 @@ username:
 account: jjcoen
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
-appId: 7156807
-bundleId: 6351003
+appId: 7160456
+bundleId: 6351947
 url: https://jjcoen.shinyapps.io/loan-app/
-when: 1664445472.00503
-lastSyncTime: 1664445472.00503
+when: 1664463286.11693
+lastSyncTime: 1664463286.11694

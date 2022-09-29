@@ -1,5 +1,5 @@
 ---
-title: "![](./images/corporate-finance-inst.jpeg){#right width=10%} "
+title: "![](./Images/corporate-finance-inst.jpeg){#right width=10%} "
 subtitle: "Loan Data Web App"
 author: 'Jim Coen'
 date: "`r format(Sys.Date(), '%A, %B %d, %Y') `"
@@ -40,7 +40,7 @@ loan_data$loan_status <-ifelse(loan_data$loan_status ==1,
 
 # Comparison Between Loans in Default and Repaid  
 
-![](./images/corporate-finance-inst.jpeg){#right width="10%"}
+![](./Images/corporate-finance-inst.jpeg){#right width="10%"}
 
 :::: {style="display: grid; grid-template-columns: 400px 600px;"} 
 
@@ -66,7 +66,7 @@ loan_data$loan_status <-ifelse(loan_data$loan_status ==1,
 ::::
 
 # Data Understanding
-![](./images/corporate-finance-inst.jpeg){#right width="10%"}
+![](./Images/corporate-finance-inst.jpeg){#right width="10%"}
 
 -   Simulated credit bureau data
 
@@ -103,7 +103,7 @@ cat("Total number of loan instances: ", nrow(loan_data))
 
 # Data Preparation 
 
-![](./images/corporate-finance-inst.jpeg){#right width="10%"}
+![](./Images/corporate-finance-inst.jpeg){#right width="10%"}
 
 -    Transformed continuous variables to categorical  
 
@@ -129,7 +129,7 @@ head(subset_data) %>%
 
 # Evaluation
 
-![](./images/corporate-finance-inst.jpeg){#right width="10%"}
+![](./Images/corporate-finance-inst.jpeg){#right width="10%"}
 
 -   Web App  
 
@@ -157,13 +157,13 @@ cat("number of instances in subset data: ", nrow(subset_data))
     
 # Evaluation
 
-![](./images/corporate-finance-inst.jpeg){#right width="10%"}
+![](./Images/corporate-finance-inst.jpeg){#right width="10%"}
 
 -   Web App  
 
     - Range of instances in each class
     
-```{r}
+```{r, echo=TRUE}
 ggplot(subset_data, aes(y = loan_amnt, x = loan_status,
                             color = loan_status) ) +
       geom_boxplot() +

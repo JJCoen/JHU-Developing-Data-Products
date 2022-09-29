@@ -8,6 +8,10 @@ runtime: shiny
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(data.table)
+library(shiny)
+library(dplyr)
+library(ggplot2)
 ```
 
 # Purpose
@@ -18,6 +22,17 @@ This app deals with the outcomes of loan granted by a creditor. These fall into 
 -   Repaid
 
 # Background
+
+```{r}
+# load Loans Data
+loan_data <- read.csv("./Data/loan_data_preproc.csv", stringsAsFactors = TRUE)
+# convert to a data table
+setDT(loan_data)
+# remove index column inserted by Excel
+loan_data[, X := NULL]
+
+```
+
 
 The source for this loans data is the [Credit Risk Dataset](https://www.kaggle.com/laotse/credit-risk-dataset) on Kaggle. Features pertain to either the status of applicant or financial behaviour of the applicant:
 
@@ -36,7 +51,42 @@ The target variable is `loan_status`.  This binary variable is coded as 'Default
 The app selects a subset of variables from the data-set:  
 `loan_status` `loan_amnt`   `ir_cat`      `emp_cat`
 
+```{r, echo=TRUE}
+# Select required variables
+loan_data <- loan_data[, .(loan_status, loan_amnt, ir_cat, emp_cat)]
+# Convert response to categorical in order to 
+# identify with names when plotting
+loan_data$loan_status <-ifelse(loan_data$loan_status ==1, 
+                               "Default!",
+                               "Loan Paid") %>% 
+  as.factor() %>% 
+  relevel(ref = "Loan Paid")
+```
+
+
 ## Running the Loan App
 Select the employment length and interest rate categories.  
+
+```{r, echo=TRUE}
+emp <- '0-15'
+ir <- '0-8'
+subset_data <- loan_data[ ir_cat == ir &
+                                emp_cat == emp]
+```
+
+
 The app plots the range of loan instances in each outcome class, given the employment and interest rate category.  The boxes show Q1, Median, and Q3 levels, while the whiskers show 1.5 x (Inter-quartile range).
+
+```{r, echo=TRUE}
+# create box plots
+    ggplot(subset_data, aes(y = loan_amnt, x = loan_status,
+                            color = loan_status) ) +
+      geom_boxplot() +
+      coord_flip() +
+      # Use brewer color palettes
+      scale_color_brewer(palette="Dark2") +
+      theme(legend.position="none") +
+      labs(title="Repayment",x="Loan Outcome", y = "Loan Amount") 
+```
+
 
