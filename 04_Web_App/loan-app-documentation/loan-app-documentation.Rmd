@@ -1,0 +1,42 @@
+---
+title: "Loans App Description"
+author: "Jim Coen"
+date: '`r Sys.Date()`'
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Purpose
+
+This app deals with the outcomes of loan granted by a creditor. These fall into two classes:
+
+-   Default, or  
+-   Repaid
+
+# Background
+
+The source for this loans data is the [Credit Risk Dataset](https://www.kaggle.com/laotse/credit-risk-dataset) on Kaggle. Features pertain to either the status of applicant or financial behaviour of the applicant:
+
+| Applicant                               | Financials             |
+|-----------------------------------------|------------------------|
+| Income                                  | Loan Grade             |
+| Home Ownership                          | Loan Amount            |
+| Employment Category                     | Loan Percent Income    |
+| Credit bureau report has default info   | Interest Rate Category |
+
+Both employment length and interest rate variables have been converted to categorical variables.
+
+The target variable is `loan_status`.  This binary variable is coded as 'Default' or 'Repaid'.
+
+# Loan App
+The app selects a subset of variables from the data-set:  
+`loan_status` `loan_amnt`   `ir_cat`      `emp_cat`
+
+## Running the Loan App
+Select the employment length and interest rate categories.  
+The app plots the range of loan instances in each outcome class, given the employment and interest rate category.  The boxes show Q1, Median, and Q3 levels, while the whiskers show 1.5 x (Inter-quartile range).
+

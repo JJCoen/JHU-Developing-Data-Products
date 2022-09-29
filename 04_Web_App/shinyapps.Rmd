@@ -17,6 +17,8 @@ editor_options:
 rsconnect::setAccountInfo(name='jjcoen',
 			  token='CA6AC03798C540B63F174F6A8BC299CB',
 			  secret='jCoYTzKCzZ76/7b34Jua6PO9ovkyI+9huWCNal9J')
+
+
 ```
 
 Once the `rsconnect` package has been configured, you're ready to deploy
@@ -28,7 +30,9 @@ instructions on how to deploy our demo application.
 ```{r}
 library(rsconnect)
     
-rsconnect::deployApp('path/to/your/app')
+# set working directory to web app location
+
+rsconnect::deployApp()
 ```
 
 ## **A Demo app**
