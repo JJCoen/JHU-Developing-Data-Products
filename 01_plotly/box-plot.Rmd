@@ -1,0 +1,84 @@
+---
+title: "box-plot"
+author: "Dr Juan H Klopper"
+date: "2022-09-23"
+website: "https://rstudio-pubs-static.s3.amazonaws.com/449158_dcbce9111bff4bfba7f11e27e1226b4b.html#simple-box-and-whisker-plot"
+always_allow_html: yes
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(DT)
+```
+
+# Generate Data
+
+A tibble is a more modern version of the inbuilt R data.frame. We can print it to the screen when we render this RMD file using knitr. This is done with the DT package.
+
+The numerical variable will be that of income. We will create a categorical variable for career stage and country.
+
+```{r}
+# Seeding the pseudo-random number generator for reproducible results
+set.seed(1234)
+# Create three varaible
+income <- round(rnorm(500,  # 500 random data point values
+                      mean = 10000,  # mean of 100
+                      sd = 1000),  # standard deviation of 1000
+                digits = 2)  # round the random values to two decimal points
+stage <- sample(c("Early",  
+                  "Mid",
+                  "Late"),  # sample space of the stage variable
+                500,  # 500 random data point values
+                replace = TRUE)  # replace values for reselection
+country <- sample(c("USA",
+                    "Canada"),  # sample space of the country variabe
+                  500,  # 500 random data point values
+                  replace = TRUE)  # replace values for reselection
+# Create tibble
+df <- tibble(Income = income,  # create an Income variable for the income data point values
+             Stage = stage,  # create a Stage variable for the stage data point values
+             Country = country)  # create a Country variable for the country data point values
+# Print a data table
+datatable(df)
+```
+
+```{r}
+str(df)
+```
+
+
+## Horizontal Box Plot
+
+```{r}
+p2 <- plot_ly(type = "box",
+              x = ~Income,
+              data = df,
+              name = "All income") %>% 
+  layout(title = "Overall income",
+         yaxis = list(title = "",
+                      zeroline = FALSE),
+         xaxis = list(title = "Income",
+                      zeroline = FALSE))
+p2
+```
+
+## Boxes for Categories
+
+```{r}
+p5 <- plot_ly(df,
+              x = ~Income,
+              color = ~Stage,
+              type = "box") %>% 
+  layout(title = "Income by career stage",
+         yaxis = list(title = "Stage",
+                      zeroline = FALSE),
+         xaxis = list(title = "Income",
+                      zeroline = FALSE),
+               showlegend = FALSE)
+p5
+```
+
